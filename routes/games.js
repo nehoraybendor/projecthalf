@@ -106,7 +106,7 @@ router.get("/years", async(req,res) => {
     }
     try{
       let idEdit = req.params.idEdit;
-      let data = await GameModel.updateOne({_id:idEdit,user_id:req.tokenData._id},req.body)
+      let data = await GameModel.updateOne({_id:idEdit,user_id:req.tokenData.id},req.body)
   
       res.json(data);
     }
