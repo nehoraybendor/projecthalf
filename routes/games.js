@@ -98,6 +98,23 @@ router.get("/years", async(req,res) => {
     }
   })
 
+  router.put("/:idEdit", auth,async(req,res) => {
+    let validBody = validteGame(req.body);
+   
+    if(validBody.error){
+      return res.status(400).json(validBody.error.details);
+    }
+    try{
+      let idEdit = req.params.idEdit;
+      let data = await GameModel.updateOne({_id:idEdit,user_id:req.tokenData._id},req.body)
+  
+      res.json(data);
+    }
+    catch(err){
+      console.log(err)
+      res.status(500).json(err)
+    }
+  })
 
 router.delete("/:idDel", auth, iAdmin, async(req,res) => {
     let idDel = req.params.idDel;

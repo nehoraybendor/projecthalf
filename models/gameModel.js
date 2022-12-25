@@ -23,7 +23,7 @@ exports.validteGame = (reqBody) => {
     Game:Joi.string().min(2).max(150).required(),
     GameLink:Joi.string().min(2).max(150).allow(null,""),
     Year:Joi.number().min(1900).max(2023).allow(null,""),
-    Ganre:Joi.string().min(2).max(200).required(),
+    Genre:Joi.string().min(2).max(200).required(),
     Dev:Joi.string().min(2).max(200).required(),
     DevLink:Joi.string().min(2).max(200).allow(null,""),
     Publisher:Joi.string().min(2).max(300).required(),
