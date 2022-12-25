@@ -31,7 +31,7 @@ router.post("/", async(req,res) => {
     try{
         let game = new GameModel(req.body);
         await game.save();
-        res.status(201).json(user)
+        res.status(201).json(game)
     }
     catch(err){
         if(err.code == 11000){
